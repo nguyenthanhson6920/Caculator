@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             break;
             case "C":
                 if (input.length() > 0){
-                    String newText = input.substring(0,input.length()-1);
-                    input = newText;
+                    input = input.substring(0,input.length()-1);
                 }
             case "=":
                 Solve();
@@ -51,13 +50,51 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(input);
     }
     public void Solve(){
+        // phepnhan
         if (input.split("\\*").length == 2){
             String[] number = input.split("\\*");
             try {
-                double mul = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
-                input = mul+"";
+                double Mul = Double.parseDouble(number[0]) * Double.parseDouble(number[1]);
+                input = Mul +"";
             }catch (Exception ignored){
 
+            }
+        }
+        // pheptru
+        if (input.split("-").length == 2){
+            String[] number = input.split("-");
+            try {
+                double Sub = Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
+                input = Sub +"";
+            }catch (Exception ignored){
+
+            }
+        }
+        // phepchia
+        if (input.split("/").length == 2){
+            String[] number = input.split("/");
+            try {
+                double Div = Double.parseDouble(number[0]) / Double.parseDouble(number[1]);
+                input = Div +"";
+            }catch (Exception ignored){
+
+            }
+        }
+        // phepcong
+        if (input.split("\\+").length == 2){
+            String[] number = input.split("\\+");
+            try {
+                double Add = Double.parseDouble(number[0]) + Double.parseDouble(number[1]);
+                input = Add +"";
+            }catch (Exception ignored){
+
+            }
+        }
+
+        String[] n = input.split("\\.");
+        if (n.length  > 1) {
+            if (n[1].equals("0")){
+                input = n[0];
             }
         }
     }
